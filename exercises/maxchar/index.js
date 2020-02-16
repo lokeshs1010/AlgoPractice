@@ -6,20 +6,15 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-  const arr = str.split("");
-  const obj = arr.reduce((acc, val) => {
-    if (acc[val]) {
-      acc[val] = acc[val] + 1;
-    } else {
-      acc[val] = 1;
-    }
+  const charMap = {};
 
-    return acc;
-  }, {});
+  for (let char of str) {
+    charMap[char] = charMap[char] + 1 || 1;
+  }
 
   let maxCharLength = 0;
   let maxChar = "";
-  for (const [key, value] of Object.entries(obj)) {
+  for (const [key, value] of Object.entries(charMap)) {
     if (maxCharLength < value) {
       maxCharLength = value;
       maxChar = key;
