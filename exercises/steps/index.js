@@ -18,9 +18,23 @@
 //       '####'
 
 function steps(n) {
-  for (let i = 1; i <= n; i++) {
-    console.log("#".repeat(i) + " ".repeat(n - i));
+  for (let row = 0; row < n; row++) {
+    let stairs = "";
+    for (let col = 0; col < n; col++) {
+      if (col <= row) {
+        stairs += "#";
+      } else {
+        stairs += " ";
+      }
+    }
+    console.log(stairs);
   }
 }
 
 module.exports = steps;
+
+// function steps(n) {
+//   for (let i = 1; i <= n; i++) {
+//     console.log("#".repeat(i) + " ".repeat(n - i));
+//   }
+// }
