@@ -11,22 +11,19 @@
 function charMap(str) {
   const charMap = {};
 
-  for (const char of str) {
+  for (const char of str.replace(/[^\w]/g, "").toLowerCase()) {
     charMap[char] = charMap[char] + 1 || 1;
   }
   return charMap;
 }
 
 function anagrams(stringA, stringB) {
-  mStringA = stringA.replace(/[^\w]/g, "").toLowerCase();
-  mStringB = stringB.replace(/[^\w]/g, "").toLowerCase();
+  charMapA = charMap(stringA);
+  charMapB = charMap(stringB);
 
-  if (mStringA.length !== mStringB.length) {
+  if (Object.keys(charMapA).length !== Object.keys(charMapB).length) {
     return false;
   }
-
-  charMapA = charMap(mStringA);
-  charMapB = charMap(mStringB);
 
   for (const x in charMapA) {
     if (charMapA[x] !== charMapB[x]) {
