@@ -8,29 +8,69 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function charMap(str) {
-  const charMap = {};
-
-  for (const char of str.replace(/[^\w]/g, "").toLowerCase()) {
-    charMap[char] = charMap[char] + 1 || 1;
-  }
-  return charMap;
+function cleanString(str) {
+  return str
+    .replace(/[^\w]/g, "")
+    .toLowerCase()
+    .split("")
+    .sort()
+    .join("");
 }
-
 function anagrams(stringA, stringB) {
-  charMapA = charMap(stringA);
-  charMapB = charMap(stringB);
-
-  if (Object.keys(charMapA).length !== Object.keys(charMapB).length) {
-    return false;
-  }
-
-  for (const x in charMapA) {
-    if (charMapA[x] !== charMapB[x]) {
-      return false;
-    }
-  }
-  return true;
+  return cleanString(stringA) === cleanString(stringB);
 }
 
 module.exports = anagrams;
+
+// function charMap(str) {
+//   const charMap = {};
+
+//   for (const char of str) {
+//     charMap[char] = charMap[char] + 1 || 1;
+//   }
+//   return charMap;
+// }
+
+// function anagrams(stringA, stringB) {
+//   mStringA = stringA.replace(/[^\w]/g, "").toLowerCase();
+//   mStringB = stringB.replace(/[^\w]/g, "").toLowerCase();
+
+//   if (mStringA.length !== mStringB.length) {
+//     return false;
+//   }
+
+//   charMapA = charMap(mStringA);
+//   charMapB = charMap(mStringB);
+
+//   for (const x in charMapA) {
+//     if (charMapA[x] !== charMapB[x]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// function charMap(str) {
+//   const charMap = {};
+
+//   for (const char of str.replace(/[^\w]/g, "").toLowerCase()) {
+//     charMap[char] = charMap[char] + 1 || 1;
+//   }
+//   return charMap;
+// }
+
+// function anagrams(stringA, stringB) {
+//   charMapA = charMap(stringA);
+//   charMapB = charMap(stringB);
+
+//   if (Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+//     return false;
+//   }
+
+//   for (const x in charMapA) {
+//     if (charMapA[x] !== charMapB[x]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
