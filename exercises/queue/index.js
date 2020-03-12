@@ -10,16 +10,30 @@
 
 class Queue {
   constructor() {
-    this.arr = [];
+    this.data = [];
   }
 
-  add(num) {
-    this.arr.push(num);
+  add(record) {
+    this.data.unshift(record);
   }
 
   remove() {
-    return this.arr.shift();
+    return this.data.pop();
   }
 }
 
 module.exports = Queue;
+
+// class Queue {
+//   constructor() {
+//     this.arr = [];
+//   }
+
+//   add(num) {
+//     this.arr.push(num);
+//   }
+
+//   remove() {
+//     return this.arr.shift();
+//   }
+// }
