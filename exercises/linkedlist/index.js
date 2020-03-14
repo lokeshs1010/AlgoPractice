@@ -124,6 +124,22 @@ class LinkedList {
 
     previous.next = previous.next.next;
   }
+
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    const previous = this.getAt(index - 1) || this.getLast();
+
+    previous.next = new Node(data, previous.next);
+  }
 }
 
 module.exports = { Node, LinkedList };
@@ -206,3 +222,18 @@ module.exports = { Node, LinkedList };
 
 //   previous.next = node.next;
 // }
+
+// insertAt(data, index) {
+//     if (index === 0) {
+//       this.insertFirst(data);
+//       return;
+//     }
+//     const previous = this.getAt(index - 1);
+
+//     if (!previous || !previous.next) {
+//       this.insertLast(data);
+//       return;
+//     }
+
+//     previous.next = new Node(data, previous.next);
+//   }
