@@ -47,8 +47,10 @@ class LinkedList {
       }
       node = node.next;
     }
+  }
 
-    return prevNode;
+  clear() {
+    this.head = null;
   }
 }
 
