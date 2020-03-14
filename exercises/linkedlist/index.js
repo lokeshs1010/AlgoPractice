@@ -90,6 +90,22 @@ class LinkedList {
       this.head = new Node(data);
     }
   }
+
+  getAt(index) {
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+
+      node = node.next;
+      counter++;
+    }
+
+    return null;
+  }
 }
 
 module.exports = { Node, LinkedList };
@@ -136,4 +152,19 @@ module.exports = { Node, LinkedList };
 //   }
 //   const lastNode = this.getLast();
 //   lastNode.next = new Node(data, null);
+// }
+
+// getAt(index) {
+//   let node = this.head;
+//   let counter = 0;
+
+//   if (!this.head) {
+//     return null;
+//   }
+
+//   while (counter != index) {
+//     node = node.next;
+//     counter++;
+//   }
+//   return node;
 // }
